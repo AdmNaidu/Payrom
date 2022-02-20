@@ -1,0 +1,138 @@
+<div class="card-body">
+    <form>
+        <div class="form-group row">
+            <label for="bnk_name3" class="col-sm-4 col-form-label">Bank Name</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="bnk_name3" placeholder="Bank Name">
+            </div>
+            <div class="col-sm-4 radio-align">
+                <label class="radio-inline">
+                    <input type="radio" name="bnk_name3"  style="padding-left:15px;" checked><span>Approve</span>
+                </label>
+                <label class="radio-inline" style="padding-left:15px;">
+                    <input type="radio" name="bnk_name3" style="padding-left:15px;"><span>Reject</span>
+                </label>
+                <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;" data-toggle="modal" data-target=".bd-personal-owner3-modal-lg">Remark</button>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="bnk_branch3" class="col-sm-4 col-form-label">Bank Branch</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="bnk_branch3" placeholder="Bank Branch">
+            </div>
+            <div class="col-sm-4 radio-align">
+                <label class="radio-inline">
+                    <input type="radio" name="bnk_branch3"  style="padding-left:15px;" checked><span>Approve</span>
+                </label>
+                <label class="radio-inline" style="padding-left:15px;">
+                    <input type="radio" name="bnk_branch3" style="padding-left:15px;"><span>Reject</span>
+                </label>
+                <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;" data-toggle="modal" data-target=".bd-personal-owner3-modal-lg">Remark</button>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="bank_ac3" class="col-sm-4 col-form-label">Bank Account</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="bank_ac3" placeholder="Bank Account">
+            </div>
+            <div class="col-sm-4 radio-align">
+                <label class="radio-inline">
+                    <input type="radio" name="bank_ac3"  style="padding-left:15px;" checked><span>Approve</span>
+                </label>
+                <label class="radio-inline" style="padding-left:15px;">
+                    <input type="radio" name="bank_ac3" style="padding-left:15px;"><span>Reject</span>
+                </label>
+                <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;" data-toggle="modal" data-target=".bd-personal-owner3-modal-lg">Remark</button>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="iban_no3" class="col-sm-4 col-form-label">IBAN Number</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="iban_no3" placeholder="IBAN Number">
+            </div>
+            <div class="col-sm-4 radio-align">
+                <label class="radio-inline">
+                    <input type="radio" name="iban_no3"  style="padding-left:15px;" checked><span>Approve</span>
+                </label>
+                <label class="radio-inline" style="padding-left:15px;">
+                    <input type="radio" name="iban_no3" style="padding-left:15px;"><span>Reject</span>
+                </label>
+                <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;" data-toggle="modal" data-target=".bd-personal-owner3-modal-lg">Remark</button>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="vat_no3" class="col-sm-4 col-form-label">VAT Number</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="vat_no3" placeholder="VAT Number">
+            </div>
+            <div class="col-sm-4 radio-align">
+                <label class="radio-inline">
+                    <input type="radio" name="vat_no3"  style="padding-left:15px;" checked><span>Approve</span>
+                </label>
+                <label class="radio-inline" style="padding-left:15px;">
+                    <input type="radio" name="vat_no3" style="padding-left:15px;"><span>Reject</span>
+                </label>
+                <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;" data-toggle="modal" data-target=".bd-personal-owner3-modal-lg">Remark</button>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-12 float-right">
+                    <button type="button" class="btn btn-sm btn-success edit_btn" data-toggle="modal" data-target=".bd-bank3-modal-lg">Edit</button> 
+            </div>
+        </div>
+    </form> 
+
+    <div class="modal fade bd-bank3-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content riskmodel-edit-form-modal">
+                <div class="container">
+                    <form id="edit_riskmodules_form">
+                        <div class="col-11">
+                            <div class="row">
+                                <div class="col-sm-6">     
+                                    <div class="form-group">
+                                        <label for="owner_name">Bank Name</label>
+                                        <input type="text" id="bnk_name" name="bnk_name" class="form-control" autocomplete="off" value="Bank Of Emirates">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bnk_branch">Bank Branch</label>
+                                        <input type="text" id="bnk_branch" name="bnk_branch" class="form-control" autocomplete="off" value="UAE">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">     
+                                    <div class="form-group">
+                                        <label for="bnk_ac">Bank Account</label>
+                                        <input type="text" id="bnk_ac" name="bnk_ac" class="form-control" autocomplete="off" value="67867876898766">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">     
+                                    <div class="form-group">
+                                        <label for="iban_no">IBAN Number</label>
+                                        <input type="text" id="iban_no" name="iban_no" class="form-control" autocomplete="off" value="67867876898766">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">    
+                                    <div class="form-group">
+                                        <label for="vat_no">VAT Number</label>
+                                        <input type="text" id="vat_no" name="vat_no" class="form-control" autocomplete="off" value="876898766">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button type="button" class="btn btn-submit" id="btn_submit">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

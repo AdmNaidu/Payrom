@@ -1,0 +1,90 @@
+<ng-container [formGroup]="form">
+    <div class="card-body"  id="msform">
+        <div class="container" >
+            <div class="row">
+    
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                        
+                            <input type="text" formControlName="ownerName" class="form-control"  placeholder="Full Name"/>
+                            
+                            <div *ngIf="form.controls['ownerName'].invalid && (form.controls['ownerName'].dirty || form.controls['ownerName'].touched)" class="alert">
+                                <div *ngIf="form.controls['ownerName'].errors.required">
+                                    <p class="error-msg">
+                                        Name is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    
+                    <div class="form-group">
+                        <select id="inputCity" name="city" formControlName="city" class="form-control">
+                            <option value="undefined" selected disabled>Select option</option>
+                            <option value="Dubai">Dubai</option>
+                            <option value="Abu Dhabi">Abu Dhabi</option>
+                            <option value="Sharjah">Sharjah</option>
+                            <option value="AI Ain">AI Ain</option>
+                            <option value="Ajman">Ajman</option>
+                            <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+                            <option value="Fujairah City">Fujairah City</option>
+                            <option value="Umm AI Quwain">Umm AI Quwain</option>
+                        </select>
+                        <div *ngIf="form.controls['city'].invalid && (form.controls['city'].dirty || form.controls['city'].touched)" class="alert">
+                            <div *ngIf="form.controls['city'].errors.required">
+                                <p class="error-msg">
+                                    Select city
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                        
+                            <input type="text" formControlName="emiratesId" class="form-control"  placeholder="Emirates Id"/>
+                            <div *ngIf="form.controls['emiratesId'].invalid && (form.controls['emiratesId'].dirty || form.controls['emiratesId'].touched)" class="alert">
+                                <div *ngIf="form.controls['emiratesId'].errors.required">
+                                    <p class="error-msg">
+                                        Emirates Id is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            
+                
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            
+                            <input type="text" formControlName="passportNumber" class="form-control"  placeholder="Passport Number"/>
+                            <div *ngIf="form.controls['passportNumber'].invalid && (form.controls['passportNumber'].dirty || form.controls['passportNumber'].touched)" class="alert">
+                                <div *ngIf="form.controls['passportNumber'].errors.required">
+                                    <p class="error-msg">
+                                        Passport Number is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="row">
+                <div class="col">
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

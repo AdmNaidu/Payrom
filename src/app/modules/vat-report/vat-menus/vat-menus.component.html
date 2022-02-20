@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <nav>
+            <div class="nav nav-tabs dist-tab" id="distnav-tab" role="tablist">
+                <button class="nav-link dist_nav" id="complaint" data-bs-toggle="tab"
+                    data-bs-target="#nav-complaint" type="button" role="tab" aria-controls="nav-complaint"
+                    aria-selected="true" [routerLink]="['/vat-report']" [routerLinkActive]="['active']"
+                    [routerLinkActiveOptions]={exact:true}><img src="/assets/images/complaints.svg"
+                        class="menuIcons" />Vat Report</button>
+
+                <button class="nav-link dist_nav" id="complaint" data-bs-toggle="tab"
+                    data-bs-target="#nav-complaint" type="button" role="tab" aria-controls="nav-complaint"
+                    aria-selected="true" [routerLink]="['/vat-report/vat-request']"
+                    [routerLinkActive]="['active']" [routerLinkActiveOptions]={exact:true}><img
+                        src="/assets/images/complaints.svg" class="menuIcons" />Auditor List</button>
+
+            </div>
+        </nav>
+    </div>
+</div>

@@ -1,0 +1,267 @@
+<div class="content-wrapper main-section-container">
+    <app-create-ac-menus></app-create-ac-menus>
+
+
+    <section class="content mt-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pl-0 pr-0">      
+                    <div class="table-container">
+                        <div class="row"> 
+                            <div class="col-md-12 col-md-offset-3">
+                                <form [formGroup]="accountForm" id="msform" (ngSubmit)="onSubmit()">
+                                    <!-- progressbar -->
+                                    <ul id="progressbar">
+                                        <li [ngClass]="step>=1 ? 'active ' : 'inactive'"><hr class="line" *ngIf="step>=2"/><p>Basic</p></li>
+                                        <li [ngClass]="step>=2 ? 'active' : 'inactive'"><hr class="line" *ngIf="step>=3"/>Personal</li>
+                                        <li [ngClass]="step>=3 ? 'active' : 'inactive'"><hr class="line" *ngIf="step>=4"/>Card</li>
+                                        <li [ngClass]="step>=4 ? 'active' : 'inactive'"><hr class="line"*ngIf="step>=5"/>Bank</li>
+                                        <li [ngClass]="step>=5 ? 'active' : 'inactive'"><hr class="line"*ngIf="step>=6"/>Address</li>
+                                        <li [ngClass]="step>=6 ? 'active' : 'inactive'"><hr class="line"*ngIf="step>=7"/>Licence</li>
+                                        <li [ngClass]="step>=7 ? 'active' : 'inactive'"><hr class="line"*ngIf="step>=8"/>Staff</li>
+                                        <li [ngClass]="step>=8 ? 'active' : 'inactive'">Terms & Conditions</li>
+                                    </ul>
+                                   
+                                    <!-- fieldsets -->
+                                    
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;" *ngIf="step == 1">
+                                        
+                                        <div class="card-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                        <div class="form-group">
+                                                            <div class="picture-container">
+                                                                <div class="picture">
+                                                                    <div class="picture2">
+                                                                        <img src="assets/images/profile1.jpeg" class="picture-src" id="wizardPicturePreview" title="">
+                                                                        <input type="file" id="wizard-picture" class="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="picture-label text-center">
+                                                                <label for="wizard-picture">Upload Profile Picture</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+            
+                                                    <div class="col-5 mt-3">
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                               
+                                                                <input type="text" formControlName="name" class="form-control"  placeholder="Full Name"/>
+                                                                <!-- <div *ngIf="basic_step && basicDetails.controls.name.errors">
+                                                                    <div *ngIf="basic.name.errors?.required">Name is required</div>
+                                                                </div> -->
+                                                                <div *ngIf="accountForm.controls['name'].invalid && (accountForm.controls['name'].dirty || accountForm.controls['name'].touched)" class="alert">
+                                                                    <div *ngIf="accountForm.controls['name'].errors.required">
+                                                                        <p class="error-msg">
+                                                                            Name is required
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <!-- <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Your Password"> -->
+                                                                <input type="password" formControlName="password" class="form-control"  [ngClass]="{ 'is-invalid': basic_step && basic.password.errors }" placeholder="Password"/>
+                                                                <div *ngIf="accountForm.controls['password'].invalid && (accountForm.controls['password'].dirty || accountForm.controls['password'].touched)" class="alert">
+                                                                    <div>
+                                                                        <div><p class="error-msg" *ngIf="accountForm.controls['password'].errors.required">Password is required......</p></div>
+                                                                        <div><p class="error-msg" *ngIf="accountForm.controls['password'].errors.hasNumber">Password must have a Number</p></div>
+                                                                        <div><p class="error-msg" *ngIf="accountForm.controls['password'].errors.hasCapitalCase">Password must have a capital letter</p></div>
+                                                                        <div><p class="error-msg" *ngIf="accountForm.controls['password'].errors.hasSpecialCharacters">Password must have special characters</p></div>
+                                                                        <div><p class="error-msg" *ngIf="accountForm.controls['password'].errors.hasSmallCase">Password must have smallcase letter</p></div>
+                                                                        <div><p class="error-msg" *ngIf="accountForm.controls['password'].errors.minlength">Password must have min 8 characters</p></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+            
+                                                    <div class="col-5 mt-3">
+            
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                
+                                                                <input type="email" formControlName="email" class="form-control"  [ngClass]="{ 'is-invalid': basic_step && basic.email.errors }" placeholder="Email"/>
+                                                                <div *ngIf="accountForm.controls['email'].invalid && (accountForm.controls['email'].dirty || accountForm.controls['email'].touched)" class="alert">
+                                                                    <div *ngIf="accountForm.controls['email'].errors.required">
+                                                                        <p class="error-msg">
+                                                                            Email is required
+                                                                        </p>
+                                                                    </div>
+                                                                    <span class="error-msg" *ngIf="accountForm.controls['email'].errors.pattern">Please enter valid Email id</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+            
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <!-- <input type="password" id="inputConfirmPassword" name="confirm_password" class="form-control" placeholder="Confirm Password"> -->
+                                                                <input type="password" formControlName="cnfPassword" class="form-control"  [ngClass]="{ 'is-invalid': basic_step && basic.cnfPassword.errors }" placeholder="Confirm Password"/>
+                                                                <div *ngIf="accountForm.controls['cnfPassword'].invalid && (accountForm.controls['cnfPassword'].dirty || accountForm.controls['cnfPassword'].touched)" class="alert">
+                                                                    <div *ngIf="accountForm.controls['cnfPassword'].errors.required">
+                                                                        <p class="error-msg">
+                                                                            Confirm password is required
+                                                                        </p>
+                                                                    </div>
+                                                                    <span class="error-msg" *ngIf="accountForm.controls['cnfPassword'].errors.checkPassword">Password doesn't match</span>
+                                                                </div>                                                              
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <input (click)="next()" type="button" name="next" class="next action-button" value="Next" />
+                                                    </div>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card mx-auto shadow-none"  style="width: auto;margin-top: -25px;"  *ngIf="step == 2">
+                                        <app-personal formControlName="personalDetails"></app-personal>
+                                        <div class="row">
+                                            <div class="col">
+                                                <!-- [disabled]="personal.invalid" [style.background-color]="personalDetails.invalid ? 'gray' : 'green'" -->
+                                                <input (click)="next()" type="button" name="next" class="next action-button" value="Next" />
+                                                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"  *ngIf="step == 3">
+                                        <app-card-form formControlName="cardDetails"></app-card-form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+                                                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"  *ngIf="step == 4">
+                                        <app-bank-form formControlName="bankDetails"></app-bank-form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+                                                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"  *ngIf="step == 5">
+                                        <app-address-form formControlName="addressDetails"></app-address-form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+                                                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"  *ngIf="step == 6">
+                                        <app-licence-form formControlName="licenseDetails"></app-licence-form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+                                                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"  *ngIf="step == 7">
+
+                                        <app-staff-form formControlName="staffDetails"></app-staff-form>
+        
+                                        <div class="row">
+                                            <div class="col">
+                                                <input (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+                                                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"  *ngIf="step == 8">
+                                        <div class="card-body">
+                                            <div class="container">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-12 mt-3">
+                                                        <div class="tAndC">
+                                                        <p class="tAndCPara">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                                        </div>
+                                                        <div style="float:left; width: 51%;">
+                                                            <span><input type="checkbox" id="TandC" name="tAndC" value="tandc" style="display:inline; width:4%" onchange="document.getElementById('submit').disabled = !this.checked;">
+                                                                By signing up I agree to the terms and conditions & Privacy Policy</span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                              
+                                            
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <input (click)="onSubmit()" type="button" id="submit" class="submit action-button" value="Submit" disabled/>
+                                                        <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                </form>
+                               
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,101 @@
+<ng-container [formGroup]="cardform">
+    <div class="card-body" id="msform">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                
+                            <input type="text" formControlName="bankName" class="form-control" placeholder="Bank Name"/>
+                            <div *ngIf="cardform.controls['bankName'].invalid && (cardform.controls['bankName'].dirty || cardform.controls['bankName'].touched)" class="alert">
+                                <div *ngIf="cardform.controls['bankName'].errors.required">
+                                    <p class="error-msg">
+                                        Bank Name is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col"> 
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input  type="radio" formControlname="cardType" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1"><img src="assets/images/visa.png" style="width:40px;margin-top: -59px;margin-left: 61px;"></label>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col"> 
+                        <div class="form-group">
+                            <input type="text" formControlName="cardNumber" class="form-control"  placeholder="Card Number"/>
+                            <div *ngIf="cardform.controls['cardNumber'].invalid && (cardform.controls['cardNumber'].dirty || cardform.controls['cardNumber'].touched)" class="alert">
+                                <div *ngIf="cardform.controls['cardNumber'].errors.required">
+                                    <p class="error-msg">
+                                        Card Number is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="input-group date" id="cardExpiry" data-target-input="nearest">
+                                <input type="date"formControlName="cardExpiry" class="form-control datetimepicker-input" data-target="#cardExpiry" placeholder="Joining Date" name="Joining Date">
+                            </div>
+                            <div *ngIf="cardform.controls['cardExpiry'].invalid && (cardform.controls['cardExpiry'].dirty || cardform.controls['cardExpiry'].touched)" class="alert">
+                                <div *ngIf="cardform.controls['cardExpiry'].errors.required">
+                                    <p class="error-msg">
+                                        card Expiry date is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="nameOnCard" class="form-control"  placeholder="Card Holder Name"/>
+                            <div *ngIf="cardform.controls['nameOnCard'].invalid && (cardform.controls['nameOnCard'].dirty || cardform.controls['nameOnCard'].touched)" class="alert">
+                                <div *ngIf="cardform.controls['nameOnCard'].errors.required">
+                                    <p class="error-msg">
+                                        Name on Card is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col"> 
+                        <div class="form-group">
+                            <div class="form-group">
+                                <input type="text" formControlName="cvvNumber" class="form-control"  placeholder="Cvv"/>
+                                <div *ngIf="cardform.controls['cvvNumber'].invalid && (cardform.controls['cvvNumber'].dirty || cardform.controls['cvvNumber'].touched)" class="alert">
+                                    <div *ngIf="cardform.controls['cvvNumber'].errors.required">
+                                        <p class="error-msg">
+                                            CVV is required
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

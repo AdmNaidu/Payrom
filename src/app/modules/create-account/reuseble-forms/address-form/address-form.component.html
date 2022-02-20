@@ -1,0 +1,83 @@
+<ng-container [formGroup]="addressForm">
+    <div class="card-body" id="msform">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="address" class="form-control"  placeholder="Address"/>
+                            <div *ngIf="addressForm.controls['address'].invalid && (addressForm.controls['address'].dirty || addressForm.controls['address'].touched)" class="alert">
+                                <div *ngIf="addressForm.controls['address'].errors.required">
+                                    <p class="error-msg">
+                                        Address is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="location" class="form-control"  placeholder="Location"/>
+                            <div *ngIf="addressForm.controls['location'].invalid && (addressForm.controls['location'].dirty || addressForm.controls['location'].touched)" class="alert">
+                                <div *ngIf="addressForm.controls['location'].errors.required">
+                                    <p class="error-msg">
+                                        Location is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="primaryConatct" class="form-control"  placeholder="Primary Contact Number"/>
+                            <div *ngIf="addressForm.controls['primaryConatct'].invalid && (addressForm.controls['primaryConatct'].dirty || addressForm.controls['primaryConatct'].touched)" class="alert">
+                                <div *ngIf="addressForm.controls['primaryConatct'].errors.required">
+                                    <p class="error-msg">
+                                        Primary Contact is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="secondaryConatct" class="form-control"  placeholder="Secondary Contact Number"/>
+                            <div *ngIf="addressForm.controls['secondaryConatct'].invalid && (addressForm.controls['secondaryConatct'].dirty || addressForm.controls['secondaryConatct'].touched)" class="alert">
+                                <div *ngIf="addressForm.controls['secondaryConatct'].errors.required">
+                                    <p class="error-msg">
+                                       Secondary Conatct is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="website" class="form-control"  placeholder="Website"/>
+                            <div *ngIf="addressForm.controls['website'].invalid && (addressForm.controls['website'].dirty || addressForm.controls['website'].touched)" class="alert">
+                                <div *ngIf="addressForm.controls['website'].errors.required">
+                                    <p class="error-msg">
+                                        Website is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

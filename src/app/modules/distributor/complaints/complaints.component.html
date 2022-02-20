@@ -1,0 +1,224 @@
+<div class="content-wrapper main-section-container">
+
+    <app-distributor-menus></app-distributor-menus>
+    <section class="content mt-3">
+        <div class="container-fluid">  
+            <div class="row">
+                <div class="col-sm pl-0 pr-0">
+                    <div class="chart-container" style="border: 0px;">
+                        <div class="mytextdiv">
+                            <div class="mytexttitle">
+                                COMPLAINT HISTORY
+                            </div>
+                            <div class="divider"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content mt-1">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm pl-0 pr-0">
+              <div class="chart-container">
+          
+                <div id="chart-container">
+
+                <ejs-chart style='display:block;' [chartArea]='chartArea' id='chartcontainer'
+                    [primaryXAxis]='prXAxis' [primaryYAxis]='prYAxis' [title]='title'
+                    [tooltip]='tooltip'  [legendSettings]='legend'
+                    [palettes]='palette'>
+                    <e-series-collection>
+                        <e-series [dataSource]='chartData1' type='StackingColumn' xName='x'
+                            yName='y' name='Total Cases' width='2'></e-series>
+                        <e-series [dataSource]='chartData2' type='StackingColumn' xName='x'
+                            yName='y' name='Open Cases' width='2'></e-series>
+                        <e-series [dataSource]='chartData3' type='StackingColumn' xName='x'
+                            yName='y' name='Closed Cases' width='2' [cornerRadius]='radius'></e-series>
+                    </e-series-collection>
+                </ejs-chart>
+              
+                </div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <section class="content mt-3">
+        <div class="container-fluid">  
+            <div class="row">
+                <div class="col-sm pl-0 pr-0">
+                    <div class="chart-container" style="border: 0px;">
+                        <div class="mytextdiv">
+                            <div class="mytexttitle">
+                                TARGETS
+                            </div>
+                            <div class="divider"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="round-chart-value-section mb-4" style="border: none;">
+        <div class="row">
+            <div class="col-md-3 col-sm" style="background-color:#fff; padding: 15px;">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="title"
+                            style="font-family:Arial, Helvetica, sans-serif;">
+                            <h2 class="queue" style="position: relative; left: 40px;">Q1
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col content">
+                            <div class="title targetTitle">TARGET</div>
+                            <div class="value q_value">21,000,000</div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="Q-hr" style="margin:10px;" />
+                <div class="row">
+                    <div class="col-6">
+                        <div class="col c-red" style="left: 35px;">
+                            <div class="title percent">ACTUAL</div>
+                            <div class="value t_amt">200,000</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col c-red">
+                            <div class="title percent">PERCENTAGE</div>
+                            <div class="value newVal"><i class="fas fa-caret-down"></i> 2%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm" style="background-color:#fff; padding: 15px;">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="title"
+                            style="font-family:Arial, Helvetica, sans-serif;">
+                            <h2 class="queue" style="position: relative; left: 40px;">Q2
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col content">
+                            <div class="title targetTitle">TARGET</div>
+                            <div class="value q_value">10,000,500</div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="Q-hr" style="margin:10px;" />
+                <div class="row">
+                    <div class="col-6">
+                        <div class="col c-red" style="left: 35px;">
+                            <div class="title percent">ACTUAL</div>
+                            <div class="value t_amt">1,000,500</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col c-red">
+                            <div class="title percent">PERCENTAGE</div>
+                            <div class="value newVal"><i class="fas fa-caret-down"></i> 5%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm" style="background-color:#fff; padding: 15px;">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="title"
+                            style="font-family:Arial, Helvetica, sans-serif;">
+                            <h2 class="queue" style="position: relative; left: 40px;">Q3
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col content">
+                            <div class="title targetTitle">TARGET</div>
+                            <div class="value q_value">48,000,000</div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="Q-hr" style="margin:10px;" />
+                <div class="row">
+                    <div class="col-6">
+                        <div class="col c-red" style="left: 35px;">
+                            <div class="title percent">ACTUAL</div>
+                            <div class="value t_amt">4,500,000</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col c-red">
+                            <div class="title percent">PERCENTAGE</div>
+                            <div class="value newVal"><i class="fas fa-caret-down"></i> 2%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm" style="background-color:#fff; padding: 15px;">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="title"
+                            style="font-family:Arial, Helvetica, sans-serif;">
+                            <h2 class="queue" style="position: relative; left: 40px;">Q4
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col content">
+                            <div class="title targetTitle">TARGET</div>
+                            <div class="value q_value">5,400,000</div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="Q-hr" style="margin:10px;" />
+                <div class="row">
+                    <div class="col-6">
+                        <div class="col c-red" style="left: 35px;">
+                            <div class="title percent">ACTUAL</div>
+                            <div class="value t_amt">600,000</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col c-red">
+                            <div class="title percent">PERCENTAGE</div>
+                            <div class="value newVal"><i class="fas fa-caret-down"></i> 7%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="content mt-3">
+        <div class="container-fluid status_content">  
+            <div class="row">
+                <div class="col-sm pl-0 pr-0">
+                    <div class="chart-container" style="border: 0px;">
+                        <div class="mytextdiv">
+                            <div class="mytexttitle">
+                                CURRENT STATUS
+                            </div>
+                            <div class="divider"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="donut_height">
+        <app-donut-chart [donutDataComplaints]="finalData"></app-donut-chart>
+    </div>
+</div>
+
+
+

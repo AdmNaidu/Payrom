@@ -1,0 +1,551 @@
+<div class="content-wrapper main-section-container">
+    <div class="row pt-3">
+        <div class="col-md-12 pl-0">
+            <div *ngIf="nextTab === undefined">
+                <section class="content mt-3">
+                    <div class="containPer-fluid">
+                        <div class="col-12 pl-0 pr-0">
+                            <div class="table-container">
+                                <div>
+                                    <input class="form-control search-item" type="text" name="search"
+                                        [(ngModel)]="searchText" autocomplete="off" placeholder="Search...">
+                                </div>
+                                <div class="table_data">
+                                    <!-- <div class="hr-tag">
+                                        <hr />
+                                    </div> -->
+                                    <div class="table-responsive">
+                                        <table class="table text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th class="cur_Header">
+
+                                                        USER ID
+
+                                                    </th>
+                                                    <th class="cur_Header">
+                                                        STORE ID
+                                                    </th>
+                                                    <th>NAME</th>
+                                                    <th>EMAIL</th>
+                                                    <th>ADDRESS</th>
+                                                    <th class="cur_Header">
+                                                        JOINING DATE
+                                                    </th>
+                                                    <th>CUSTOMER SCORE</th>
+                                                    <th class="cur_Header">
+                                                        STATUS
+                                                    </th>
+                                                    <th>EXPLORE</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="align-baseline">
+                                                <tr *ngFor="let store of storeData | filter:searchText">
+                                                    <td>{{store.userId}}</td>
+                                                    <td>{{store.storeId}}</td>
+                                                    <td>{{store.name}}</td>
+                                                    <td data-tooltip="top" role="tooltip"
+                                                        attr.aria-label="{{store.email}}"><i
+                                                            class="bi-envelope-open"></i></td>
+                                                    <td class="remarks_one" data-tooltip="top" role="tooltip"
+                                                        attr.aria-label="{{store.address}}"><i class="bi-card-list"></i>
+                                                    </td>
+                                                    <td>{{store.joiningDate}}</td>
+                                                    <td>{{store.cust_score}}</td>
+                                                    <td><select rows="1"
+                                                        class="addValue" placeholder="">
+                                                        <option value="active">Active</option>
+                                                        <option value="deactive">Deactive</option>
+
+                                                    </select>
+
+                                                        <!-- <span [ngStyle]="{'color':complaint.color}"><i
+                                                                class="fas fa-bars icon-select"></i>
+                                                        </span>
+                                                        <select class="status-option status_complaint"
+                                                            (change)="changeStatus($event.target.value)"[(ngModel)]=complaint.status>
+                                                            
+                                                            <option *ngFor="let i of status" [value]="complaint.status">
+                                                                {{i.key}}
+                                                            </option>
+                                                        </select> -->
+
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-success create"
+                                                            (click)="posDetailsFunc(store.userId)">Create</button>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+
+            <div *ngIf="nextTab !== undefined">
+                <div *ngFor="let data of storeCatData;let i =index;">
+                    <div class="card card_cnt">
+                        <!-- <div class="card-header" style="height: 36px">
+                            <div class="row">
+                                <div class="col-11 sidemenu-form">
+                                    
+                                    
+                                    <div class="input-group userNum">
+                                        <div class="pr-2 user-ownerId">STORE OWNER ID : {{data.userId}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-1 text-right" style="cursor: pointer;">
+                                    <button class="btn btn-sm"(click)="downloadReport('Categories')"><img class="btn_cat_dwn" src="assets/images/download.png"></button>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm col-md-3">
+                                    Name : {{data.name}}
+                                </div>
+                                <div class="col-sm col-md-3">Store ID : {{data.storeId}}</div>
+                                <div class="col-sm col-md-3">Email : {{data.email}}</div>
+                                <div class="col-md-3 col-sm">
+                                    <button class="btn btn-sm back_btn float-right" (click)="goBack()"><i
+                                            class="fas fa-arrow-circle-left"></i>&nbsp;Back</button>
+                                </div>
+                                <!-- <div class="col-sm-5 col-md-5 float-right"> Transaction Value : {{data.sTransactionValue}}
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABS START -->
+
+                <section class="content mt-3">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 pl-0 pr-0">
+                                <form>
+                                    <!-- progress bar -->
+                                    <ul id="progressbar">
+                                        <li id="step1" [ngClass]="step>=1 ? 'active' : 'inactive'">
+                                            <hr class="line" *ngIf="step>=1" />Basic
+                                        </li>
+                                        <li [ngClass]="step>=2 ? 'active' : 'inactive'">
+                                            <hr class="line" *ngIf="step>=2" />Personal
+                                        </li>
+                                        <li [ngClass]="step>=3 ? 'active' : 'inactive'">
+                                            <hr class="line" *ngIf="step>=3" />Card
+                                        </li>
+                                        <li [ngClass]="step>=4 ? 'active' : 'inactive'">
+                                            <hr class="line" *ngIf="step>=4" />Bank
+                                        </li>
+                                        <li [ngClass]="step>=5 ? 'active' : 'inactive'">
+                                            <hr class="line" *ngIf="step>=5" />Address
+                                        </li>
+                                        <li [ngClass]="step>=6 ? 'active' : 'inactive'">
+                                            <hr class="line" *ngIf="step>=6" />Licence
+                                        </li>
+                                        <li [ngClass]="step>=7 ? 'active' : 'inactive'">
+                                            <hr class="line" *ngIf="step>=7" />Staff
+                                        </li>
+                                        <li [ngClass]="step>=8 ? 'active' : 'inactive'">
+                                            <hr class="line" *ngIf="step>=8" />Terms & Conditions
+                                        </li>
+                                        <li [ngClass]="step>=9 ? 'active' : 'inactive'">Transaction Rate
+                                        </li>
+                                    </ul>
+
+                                    <!-- tabs -->
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"
+                                        *ngIf="step == 1">
+
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <div class="form-group">
+                                                        <div class="picture-container">
+                                                            <div class="picture">
+                                                                <div class="picture2">
+                                                                    <img src="assets/images/profile1.jpeg"
+                                                                        class="picture-src" id="wizardPicturePreview"
+                                                                        title="">
+                                                                    <input type="file" id="wizard-picture" class="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="picture-label text-center">
+                                                            <label for="wizard-picture">Upload Profile Picture</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-10">
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="your_name"
+                                                                placeholder="Your Name">
+                                                        </div>
+                                                        <div class="col-sm-6 radio-align">
+                                                            <label class="radio-inline" style="padding-left:60px;">
+                                                                <input type="radio" name="approve1"
+                                                                    style="padding-left:15px;"
+                                                                    checked><span>Approve</span>
+                                                            </label>
+                                                            <label class="radio-inline" style="padding-left:15px;">
+                                                                <input type="radio" name="approve1"
+                                                                    style="padding-left:15px;"><span>Reject</span>
+                                                            </label>
+                                                            <button type="button" class="btn btn-sm btn-secondary"
+                                                                data-toggle="modal"
+                                                                data-target=".bd-creataccount3-modal-lg">Remark</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="your_email"
+                                                                placeholder="Your Email">
+                                                        </div>
+                                                        <div class="col-sm-6 radio-align">
+                                                            <label class="radio-inline" style="padding-left:60px;">
+                                                                <input type="radio" name="your_email1"
+                                                                    style="padding-left:15px;"
+                                                                    checked><span>Approve</span>
+                                                            </label>
+                                                            <label class="radio-inline" style="padding-left:15px;">
+                                                                <input type="radio" name="your_email1"
+                                                                    style="padding-left:15px;"><span>Reject</span>
+                                                            </label>
+                                                            <button type="button" class="btn btn-sm btn-secondary"
+                                                                data-toggle="modal"
+                                                                data-target=".bd-creataccount3-modal-lg">Remark</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="password"
+                                                                placeholder="Your Password">
+                                                        </div>
+                                                        <div class="col-sm-6 radio-align">
+                                                            <label class="radio-inline" style="padding-left:60px;">
+                                                                <input type="radio" name="password1"
+                                                                    style="padding-left:15px;"
+                                                                    checked><span>Approve</span>
+                                                            </label>
+                                                            <label class="radio-inline" style="padding-left:15px;">
+                                                                <input type="radio" name="password1"
+                                                                    style="padding-left:15px;"><span>Reject</span>
+                                                            </label>
+                                                            <button type="button" class="btn btn-sm btn-secondary"
+                                                                data-toggle="modal"
+                                                                data-target=".bd-creataccount3-modal-lg">Remark</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control"
+                                                                id="confirm_password3" placeholder="Confirm Password">
+                                                        </div>
+                                                        <div class="col-sm-6 radio-align">
+                                                            <label class="radio-inline" style="padding-left:60px;">
+                                                                <input type="radio" name="confirm_password1"
+                                                                    style="padding-left:15px;"
+                                                                    checked><span>Approve</span>
+                                                            </label>
+                                                            <label class="radio-inline" style="padding-left:15px;">
+                                                                <input type="radio" name="confirm_password1"
+                                                                    style="padding-left:15px;"><span>Reject</span>
+                                                            </label>
+                                                            <button type="button" class="btn btn-sm btn-secondary"
+                                                                data-toggle="modal"
+                                                                data-target=".bd-creataccount3-modal-lg">Remark</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group row">
+                                                    <div class="col-sm-12 float-right">
+                                                        <button type="button" style="width: 60px;margin-left: 18%;"
+                                                            class="btn btn-sm btn-success" data-toggle="modal"
+                                                            data-target=".bd-example3-modal-lg">Edit</button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <input (click)="next()" type="button" name="next"
+                                                        class="btn btn-sm btn btn-sm  action-button " value="Next"
+                                                        style="width: 60px" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal fade bd-creataccount3-modal-lg" tabindex="-1" role="dialog"
+                                            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content riskmodel-edit-form-modal">
+                                                    <div class="container">
+                                                        <form id="edit_riskmodules_form">
+                                                            <div class="col-11">
+                                                                <div class="row">
+                                                                    <div class="form-group">
+                                                                        <label for="remark"></label>
+                                                                        <textarea class="form-control" rows="5"
+                                                                            id="comment"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-12 text-center">
+                                                                        <button type="button" class="btn btn-submit"
+                                                                            id="btn_submit">Update</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal fade bd-example3-modal-lg" tabindex="-1" role="dialog"
+                                            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content employee-edit-form-modal">
+                                                    <div class="container">
+                                                        <form id="edit_employee_form">
+
+                                                            <div class="row">
+
+                                                                <div class="col-2">
+                                                                    <div class="form-group">
+                                                                        <div class="picture-container">
+                                                                            <div class="picture">
+                                                                                <div class="picture2">
+                                                                                    <img src="assets/images/profile1.jpeg"
+                                                                                        class="picture-src"
+                                                                                        id="editPicturePreview"
+                                                                                        title="">
+                                                                                    <input type="file"
+                                                                                        id="edit-profile-picture"
+                                                                                        class="">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="picture-label text-center">
+                                                                            <label for="edit-profile-picture">Upload
+                                                                                Profile Picture</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-4 my-2">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label for="your_name">Your Name</label>
+                                                                            <input type="text" id="your_name"
+                                                                                name="your_name" class="form-control"
+                                                                                autocomplete="off" value="Ahmed">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label for="your_email">Your Email</label>
+                                                                            <input type="text" id="your_email"
+                                                                                name="your_email" class="form-control"
+                                                                                autocomplete="off"
+                                                                                value="Ahmed@gmail.com">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-4 my-2">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label for="your_password">Your
+                                                                                Password</label>
+                                                                            <input type="text" id="your_password"
+                                                                                name="your_password"
+                                                                                class="form-control" autocomplete="off"
+                                                                                value="********">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label for="cnf_password">Confirm
+                                                                                Password</label>
+                                                                            <input type="text" id="cnf_password"
+                                                                                name="cnf_password" class="form-control"
+                                                                                autocomplete="off" value="********">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-12 text-center">
+                                                                    <button type="button" class="btn btn-submit"
+                                                                        id="btn_submit">Update</button>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"
+                                        *ngIf="step == 2">
+                                        <app-risk-personal></app-risk-personal>
+                                        <div class="row">
+                                            <div class="col">
+                                                <!-- [disabled]="personal.invalid" [style.background-color]="personalDetails.invalid ? 'gray' : 'green'" -->
+                                                <input (click)="next()" type="button" name="next"
+                                                    class="next btn btn-sm  action-button" value="Next" />
+                                                <input (click)="previous()" type="button" name="previous"
+                                                    class="previous btn btn-sm  action-button-previous" value="Previous" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"
+                                        *ngIf="step == 3">
+                                        <app-risk-card></app-risk-card>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input (click)="next()" type="button" name="next"
+                                                    class="next btn btn-sm  action-button" value="Next" />
+                                                <input (click)="previous()" type="button" name="previous"
+                                                    class="previous btn btn-sm  action-button-previous" value="Previous" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"
+                                        *ngIf="step == 4">
+                                        <app-risk-bank></app-risk-bank>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input (click)="next()" type="button" name="next"
+                                                    class="next btn btn-sm  action-button" value="Next" />
+                                                <input (click)="previous()" type="button" name="previous"
+                                                    class="previous btn btn-sm  action-button-previous" value="Previous" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"
+                                        *ngIf="step == 5">
+                                        <app-risk-address></app-risk-address>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input (click)="next()" type="button" name="next"
+                                                    class="next btn btn-sm  action-button" value="Next" />
+                                                <input (click)="previous()" type="button" name="previous"
+                                                    class="previous btn btn-sm  action-button-previous" value="Previous" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"
+                                        *ngIf="step == 6">
+                                        <app-risk-license></app-risk-license>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input (click)="next()" type="button" name="next"
+                                                    class="next btn btn-sm  action-button" value="Next" />
+                                                <input (click)="previous()" type="button" name="previous"
+                                                    class="previous btn btn-sm  action-button-previous" value="Previous" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"
+                                        *ngIf="step == 7">
+
+                                        <app-risk-staff></app-risk-staff>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <input (click)="next()" type="button" name="next"
+                                                    class="next btn btn-sm  action-button" value="Next" />
+                                                <input (click)="previous()" type="button" name="previous"
+                                                    class="previous btn btn-sm  action-button-previous" value="Previous" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"
+                                        *ngIf="step == 8">
+                                        <div class="card-body">
+                                            <div class="container">
+
+                                                <div class="row">
+
+                                                    <div class="col-12 mt-3">
+                                                        <div class="tAndC">
+                                                            <p class="tAndCPara">Lorem Ipsum is simply dummy text of the
+                                                                printing and typesetting industry. Lorem Ipsum has been
+                                                                the industry's standard dummy text ever since the 1500s,
+                                                                when an unknown printer took a galley of type and
+                                                                scrambled it to make a type specimen book. It has
+                                                                survived not only five centuries, but also the leap into
+                                                                electronic typesetting, remaining essentially unchanged.
+                                                            </p>
+                                                        </div>
+                                                        <div style="float:left; width: 51%;">
+                                                            <span><input type="checkbox" id="TandC" name="tAndC"
+                                                                    value="tandc" style="display:inline; width:4%"
+                                                                    onchange="document.getElementById('submit').disabled = !this.checked;">
+                                                                By signing up I agree to the terms and conditions &
+                                                                Privacy Policy</span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <input (click)="next()" type="button" name="next"
+                                                            class="next btn btn-sm  action-button" value="Next" />
+                                                        <input (click)="previous()" type="button" name="previous"
+                                                            class="previous btn btn-sm  action-button-previous" value="Previous" />
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mx-auto shadow-none" style="width: auto;margin-top: -25px;"
+                                        *ngIf="step == 9">
+
+                                        <app-risk-transaction></app-risk-transaction>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <input (click)="onSubmit()" type="button" id="submit"
+                                                    class="submit btn btn-sm  action-button" value="Submit" disabled />
+                                                <input (click)="previous()" type="button" name="previous"
+                                                    class="previous btn btn-sm  action-button-previous" value="Previous" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>

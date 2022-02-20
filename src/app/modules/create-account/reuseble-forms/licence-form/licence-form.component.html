@@ -1,0 +1,122 @@
+<ng-container [formGroup]="licenceForm">
+    <div class="card-body" id="msform">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="licencerName" class="form-control"  placeholder="Name"/>
+                            <div *ngIf="licenceForm.controls['licencerName'].invalid && (licenceForm.controls['licencerName'].dirty || licenceForm.controls['licencerName'].touched)" class="alert">
+                                <div *ngIf="licenceForm.controls['licencerName'].errors.required">
+                                    <p class="error-msg">
+                                        Licencer Name is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="companyName" class="form-control"  placeholder="Company Name"/>
+                            <div *ngIf="licenceForm.controls['companyName'].invalid && (licenceForm.controls['companyName'].dirty || licenceForm.controls['companyName'].touched)" class="alert">
+                                <div *ngIf="licenceForm.controls['companyName'].errors.required">
+                                    <p class="error-msg">
+                                        Company Name is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="licenceNumber" class="form-control"  placeholder="License Number"/>
+                            <div *ngIf="licenceForm.controls['licenceNumber'].invalid && (licenceForm.controls['licenceNumber'].dirty || licenceForm.controls['licenceNumber'].touched)" class="alert">
+                                <div *ngIf="licenceForm.controls['licenceNumber'].errors.required">
+                                    <p class="error-msg">
+                                        Licence Number is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="input-group date" id="licenseExpiry" data-target-input="nearest">
+                                <input type="date"formControlName="licenseExpiry" class="form-control datetimepicker-input" data-target="#licenseExpiry" placeholder="Joining Date" name="Joining Date">
+                            </div>
+                            <div *ngIf="licenceForm.controls['licenseExpiry'].invalid && (licenceForm.controls['licenseExpiry'].dirty || licenceForm.controls['licenseExpiry'].touched)" class="alert">
+                                <div *ngIf="licenceForm.controls['licenseExpiry'].errors.required">
+                                    <p class="error-msg">
+                                        Licence Expiry date is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="attachLicenseCopy" class="form-control"  placeholder="License Copy"/>
+                            <div *ngIf="licenceForm.controls['attachLicenseCopy'].invalid && (licenceForm.controls['attachLicenseCopy'].dirty || licenceForm.controls['attachLicenseCopy'].touched)" class="alert">
+                                <div *ngIf="licenceForm.controls['attachLicenseCopy'].errors.required">
+                                    <p class="error-msg">
+                                        License Copy is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="establishNumber" class="form-control"  placeholder="Establishment Card Number"/>
+                            <div *ngIf="licenceForm.controls['establishNumber'].invalid && (licenceForm.controls['establishNumber'].dirty || licenceForm.controls['establishNumber'].touched)" class="alert">
+                                <div *ngIf="licenceForm.controls['establishNumber'].errors.required">
+                                    <p class="error-msg">
+                                        Establish Number is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            
+                                <div class="input-group date" id="attachEcCopy" data-target-input="nearest">
+                                    <input type="text" formControlName="attachEcCopy" class="form-control"  placeholder="Attach EC Copy"/>
+                                </div>
+                                <div *ngIf="licenceForm.controls['attachEcCopy'].invalid && (licenceForm.controls['attachEcCopy'].dirty || licenceForm.controls['attachEcCopy'].touched)" class="alert">
+                                    <div *ngIf="licenceForm.controls['attachEcCopy'].errors.required">
+                                        <p class="error-msg">
+                                            Ec Copy is required
+                                        </p>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                   
+                </div>
+                <div class="col-4 mt-3">
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</ng-container>

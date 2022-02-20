@@ -1,0 +1,256 @@
+<div class="content-wrapper main-section-container">
+    <app-distributor-menus></app-distributor-menus>
+    <div class="row pt-3" >
+        <div class="col-md-12 pl-0">
+            <div *ngIf="nextTab === undefined">
+                <div class="card title_card" >
+                    <div class="card-body" style="text-align: center;
+                    ">
+                        <div class="row">
+                        
+                            <div class="col-sm-10">
+                                <div class="content" style="margin-left: 4px;">
+                                    <div class="input-group userNum">
+                                        <div class="pr-2 user-ownerId" style="color: rgb(42, 41, 43);
+                                        margin-top: -10px;">STORE OWNER ID :</div>
+                                        <input type="text" class="form-control search-hero" aria-describedby="basic-addon2"  [(ngModel)]="searchId">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="basic-addon2" style="margin-top: -10px;
+                                            height: 26px;" (click)="posDetailsFunc(searchId)"><i class="fas fa-arrow-right fa-fw" style="margin-left: -5px;"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <button class="btn btn-sm"(click)="downloadReport('Stores')"><img class="btn_dwn" src="assets/images/download.png"></button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+
+
+                <section class="content mt-3">
+                    <div class="container-fluid">
+                        <div class="col-12 pl-0 pr-0">
+                            <div class="table-container">
+                                <div>
+                                    <input class="form-control search-item" type="text" name="search"
+                                    [(ngModel)]="searchText" autocomplete="off" placeholder="Search...">
+                                </div>
+                                <div class="table_data">
+                                    <div class="hr-tag">
+                                        <hr />
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th class="cur_Header">
+                                                        
+                                                            USER ID
+                                                        
+                                                    </th>
+                                                    <th class="cur_Header">
+                                                        STORE ID
+                                                    </th>
+                                                    <th>NAME</th>
+                                                    <th>EMAIL</th>
+                                                    <th>ADDRESS</th>
+                                                    <th class="cur_Header">
+                                                        ACTIVATION DATE
+                                                    </th>
+                                                    <th>TRANSACTION VALUE</th>
+                                                    <th class="cur_Header">
+                                                        DETAILS
+                                                    </th>
+                                                    <th>EXPLORE</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="align-baseline">
+                                                <tr *ngFor="let store of storeData | filter:searchText">
+                                                    <td>{{store.userId}}</td>
+                                                    <td>{{store.storeId}}</td>
+                                                    <td>{{store.storeName}}</td>
+                                                    <td data-tooltip="top" role="tooltip" attr.aria-label="{{store.sEmail}}"><i
+                                                            class="bi-envelope-open"></i></td>
+                                                    <td class="remarks_one" data-tooltip="top" role="tooltip" attr.aria-label="{{store.address}}"><i class="bi-card-list"
+                                                            ></i></td>
+                                                    <td>{{store.sActivationDate}}</td>
+                                                    <td>{{store.sTransactionValue}}</td>
+                                                    <td>
+                                                        <button class="btn btn-sm"(click)="downloadReport('Store',store.userId)"><i class="fas fa-download"></i></button>
+                                                        
+                                                        <!-- <span [ngStyle]="{'color':complaint.color}"><i
+                                                                class="fas fa-bars icon-select"></i>
+                                                        </span>
+                                                        <select class="status-option status_complaint"
+                                                            (change)="changeStatus($event.target.value)"[(ngModel)]=complaint.status>
+                                                            
+                                                            <option *ngFor="let i of status" [value]="complaint.status">
+                                                                {{i.key}}
+                                                            </option>
+                                                        </select> -->
+                                                        
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm uploadImg float-right"(click)="posDetailsFunc(store.userId)">POS Details</button>
+                                                    </td>
+                                                
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+
+            <div *ngIf="nextTab !== undefined" >
+                <div *ngFor="let data of storeCatData;let i =index;">
+                    <div class="card card_cnt">
+                        <div class="card-header" style="height: 36px">
+                            <div class="row">
+                                <div class="col-11 sidemenu-form">
+                                    
+                                    
+                                    <div class="input-group userNum">
+                                        <div class="pr-2 user-ownerId">STORE OWNER ID : {{data.userId}}</div>
+                                        <!-- <input type="text" class="form-control" aria-describedby="basic-addon2" >
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="basic-addon2"><i class="fas fa-arrow-right fa-fw"></i></span>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="col-1 text-right" style="cursor: pointer;">
+                                    <button class="btn btn-sm"(click)="downloadReport('Categories')"><img class="btn_cat_dwn" src="assets/images/download.png"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm col-md-3">
+                                    Name : {{data.storeName}}
+                                </div>
+                                <div class="col-sm col-md-3">Store ID :  {{data.storeId}}</div>
+                                <div class="col-sm col-md-3">Email : {{data.sEmail}}</div>
+                                
+                                <div class="col-sm col-md-3 float-right"> Transaction Value : {{data.sTransactionValue}}
+                                    <!-- <div class="mytexttitle" style="margin-top:-7px; width: 120%;">
+                                        <select class="form-select current-status-dropdown" aria-label="Default select example"
+                                        [(ngModel)]="selectStoreCat" (change)='onSelectCat($event)'>
+                                            <option *ngFor="let data of storeCatData" [value]="data.cat">{{data.cat}}</option>
+                                        </select>
+                                    </div> -->
+                                </div>
+                                
+                            </div>
+                        
+                        </div> 
+                            
+                    </div>
+                    <div>
+                        <div class="mytexttitle float-left" style="margin-top:-7px; width: 120%;">
+                            <select class="form-select current-status-dropdown" aria-label="Default select example"
+                            [(ngModel)]="selectStoreCat"(change)='onSelectCat($event)'>
+                                <option *ngFor="let cats of data['data']" [value]="cats['cat']">{{cats['cat']}}</option>
+                            </select>
+                        </div>
+                        <div class="float-right">
+                            <button class="btn btn-sm back_btn float-right"(click)="goBack()"><i class="fas fa-arrow-circle-left"></i>&nbsp;Back to Store</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <section class="content mt-3">
+                    <div class="container-fluid">
+                        <div class="col-12 pl-0 pr-0">
+                            <div class="table-container tbl_cnt">
+                                <!-- <div>
+                                    <input class="form-control search-item" type="text" name="search"
+                                    [(ngModel)]="searchText" autocomplete="off" placeholder="Search...">
+                                </div> -->
+                                <div class="table_data">
+                                    <!-- <div class="hr-tag">
+                                        <hr />
+                                    </div> -->
+                                    <div class="table-responsive">
+                                        <table class="table text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th class="cur_Header">
+                                                        
+                                                        USER ID
+                                                        
+                                                    </th>
+                                                    <!-- <th class="cur_Header">
+                                                        STOREID
+                                                    </th> -->
+                                                    <th>NAME</th>
+                                                    <th>CONTACT</th>
+                                                    <th>EMAIL</th>
+                                                    <th class="cur_Header">
+                                                        REMARKS
+                                                    </th>
+                                                    <th>ACTIVATION DATE</th>
+                                                    <th class="cur_Header">
+                                                        TRANSACTION VALUE
+                                                    </th>
+                                                    <th>DETAILS</th>
+                                                    <th>STATUS</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="align-baseline">
+                                                <tr *ngFor="let cat of catFData">
+                                                    <td>{{cat.userId}}</td>
+                                                    <!-- <td>{{cat.storeId}}</td> -->
+                                                    <td>{{cat.name}}</td>
+                                                    <td>{{cat.contact}}</td>
+                                                    <td data-tooltip="top" role="tooltip" attr.aria-label="{{cat.email}}"><i
+                                                            class="bi-envelope-open"></i></td>
+                                                    <td class="remarks_one" data-tooltip="top" role="tooltip" attr.aria-label="{{cat.remarks}}"><i class="bi-card-list"
+                                                            ></i></td>
+                                                    <td>{{cat.activationDate}}</td>
+                                                    <td>{{cat.transactionValue}}</td>
+                                                    <td>
+                                                        <button class="btn btn-sm"(click)="downloadReport('Category',cat.userId)"><i class="fas fa-download"></i></button>
+                                                        <!-- <span [ngStyle]="{'color':complaint.color}"><i
+                                                                class="fas fa-bars icon-select"></i>
+                                                        </span>
+                                                        <select class="status-option status_complaint"
+                                                            (change)="changeStatus($event.target.value)"[(ngModel)]=complaint.status>
+                                                            
+                                                            <option *ngFor="let i of status" [value]="complaint.status">
+                                                                {{i.key}}
+                                                            </option>
+                                                        </select> -->
+                                                        
+                                                    </td>
+                                                    <td>
+                                                        <select class="status-option">
+                                                            
+                                                            <option>Active</option>
+                                                            <option>InActive</option>
+                                                        </select>
+                                                    </td>
+                                                
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

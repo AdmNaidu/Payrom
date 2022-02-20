@@ -1,0 +1,130 @@
+<ng-container [formGroup]="staffForm">
+    <div class="card-body" id="msform">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="staffName" class="form-control"  placeholder="Staff Name"/>
+                            <div *ngIf="staffForm.controls['staffName'].invalid && (staffForm.controls['staffName'].dirty || staffForm.controls['staffName'].touched)" class="alert">
+                                <div *ngIf="staffForm.controls['staffName'].errors.required">
+                                    <p class="error-msg">
+                                        Name is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="pContactNo" class="form-control"  placeholder="Primary Contact Number"/>
+                            <div *ngIf="staffForm.controls['pContactNo'].invalid && (staffForm.controls['pContactNo'].dirty || staffForm.controls['pContactNo'].touched)" class="alert">
+                                <div *ngIf="staffForm.controls['pContactNo'].errors.required">
+                                    <p class="error-msg">
+                                        Primary Contact Number is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="sContactNumber" class="form-control"  placeholder="Secondary Contact Number"/>
+                            <div *ngIf="staffForm.controls['sContactNumber'].invalid && (staffForm.controls['sContactNumber'].dirty || staffForm.controls['sContactNumber'].touched)" class="alert">
+                                <div *ngIf="staffForm.controls['sContactNumber'].errors.required">
+                                    <p class="error-msg">
+                                        Secondary Contact Number is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="input-group date" id="joiningDate" data-target-input="nearest">
+                                <input type="date"formControlName="joiningDate" class="form-control datetimepicker-input" data-target="#joiningDate" placeholder="Joining Date" name="Joining Date">
+                            </div>
+                            <div *ngIf="staffForm.controls['joiningDate'].invalid && (staffForm.controls['joiningDate'].dirty || staffForm.controls['joiningDate'].touched)" class="alert">
+                                <div *ngIf="staffForm.controls['joiningDate'].errors.required">
+                                    <p class="error-msg">
+                                        Joining date is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="staffVisaNumber" class="form-control"  placeholder="Visa Number"/>
+                            <div *ngIf="staffForm.controls['staffVisaNumber'].invalid && (staffForm.controls['staffVisaNumber'].dirty || staffForm.controls['staffVisaNumber'].touched)" class="alert">
+                                <div *ngIf="staffForm.controls['staffVisaNumber'].errors.required">
+                                    <p class="error-msg">
+                                        Staff Visa Number is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="salary" class="form-control"  placeholder="Salary"/>
+                            <div *ngIf="staffForm.controls['salary'].invalid && (staffForm.controls['salary'].dirty || staffForm.controls['salary'].touched)" class="alert">
+                                <div *ngIf="staffForm.controls['salary'].errors.required">
+                                    <p class="error-msg">
+                                        Salary is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="staffBankName" class="form-control"  placeholder="Bank Name"/>
+                            <div *ngIf="staffForm.controls['staffBankName'].invalid && (staffForm.controls['staffBankName'].dirty || staffForm.controls['staffBankName'].touched)" class="alert">
+                                <div *ngIf="staffForm.controls['staffBankName'].errors.required">
+                                    <p class="error-msg">
+                                        Staff Bank Name is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="staffAcNumber" class="form-control"  placeholder="Account Number"/>
+                            <div *ngIf="staffForm.controls['staffAcNumber'].invalid && (staffForm.controls['staffAcNumber'].dirty || staffForm.controls['staffAcNumber'].touched)" class="alert">
+                                <div *ngIf="staffForm.controls['staffAcNumber'].errors.required">
+                                    <p class="error-msg">
+                                        Staff Ac Number is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                  
+                </div>
+            </div>
+
+        </div>
+    </div>
+</ng-container>

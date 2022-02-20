@@ -1,0 +1,84 @@
+<ng-container [formGroup]="bankForm">
+    <div class="card-body" id="msform"> 
+        <div class="container">
+            <div class="row">
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="bankName" class="form-control"  placeholder="Bank Name"/>
+                            <div *ngIf="bankForm.controls['bankName'].invalid && (bankForm.controls['bankName'].dirty || bankForm.controls['bankName'].touched)" class="alert">
+                                <div *ngIf="bankForm.controls['bankName'].errors.required">
+                                    <p class="error-msg">
+                                        Bank Name is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="bankBranch" class="form-control"  placeholder="Branch Name"/>
+                            <div *ngIf="bankForm.controls['bankBranch'].invalid && (bankForm.controls['bankBranch'].dirty || bankForm.controls['bankBranch'].touched)" class="alert">
+                                <div *ngIf="bankForm.controls['bankBranch'].errors.required">
+                                    <p class="error-msg">
+                                        Branch is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="bankAcNo" class="form-control"  placeholder="Bank Ac Number"/>
+                            <div *ngIf="bankForm.controls['bankAcNo'].invalid && (bankForm.controls['bankAcNo'].dirty || bankForm.controls['bankAcNo'].touched)" class="alert">
+                                <div *ngIf="bankForm.controls['bankAcNo'].errors.required">
+                                    <p class="error-msg">
+                                        Account Number is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="ibanNo" class="form-control"  placeholder="IBAN Number"/>
+                            <div *ngIf="bankForm.controls['ibanNo'].invalid && (bankForm.controls['ibanNo'].dirty || bankForm.controls['ibanNo'].touched)" class="alert">
+                                <div *ngIf="bankForm.controls['ibanNo'].errors.required">
+                                    <p class="error-msg">
+                                        IBAN Number is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="vatNumber" class="form-control"  placeholder="Vat Number"/>
+                            <div *ngIf="bankForm.controls['vatNumber'].invalid && (bankForm.controls['vatNumber'].dirty || bankForm.controls['vatNumber'].touched)" class="alert">
+                                <div *ngIf="bankForm.controls['vatNumber'].errors.required">
+                                    <p class="error-msg">
+                                        Vat Number is required
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-3">
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</ng-container>

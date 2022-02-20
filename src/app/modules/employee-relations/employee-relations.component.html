@@ -1,0 +1,596 @@
+<div class="content-wrapper main-section-container">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="default-accordion employee-accordion" id="accordion">
+
+                <div class="card first-card">
+
+                    <div class="accordion-header">
+                        <h4 class="card-title w-100">
+                            <a class="d-block w-100 top-section collapsed" data-toggle="collapse" href="#collapseOne">
+                                ADD EMPLOYEE
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" data-parent="#accordion">
+
+                        <div class="accordion-body">
+
+                            <div class="container">
+
+                                <form [formGroup]="empForm" id="msform" (ngSubmit)="submit()">
+
+                                    <div class="row">
+
+                                        <div class="col-2">
+                                            <div class="form-group">
+                                                <div class="picture-container">
+                                                    <div class="picture">
+                                                        <div class="picture2">
+                                                            <img src="assets/images/profile1.jpeg" class="picture-src" id="wizardPicturePreview" title="">
+                                                            <input type="file" id="wizard-picture" class="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="picture-label text-center">
+                                                    <label for="wizard-picture">Upload Profile Picture</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-3 my-2">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputEmployeeName" class="float-left">Employee Name</label>
+                                                    <input type="text" formControlName="empName" id="inputEmployeeName" name="employee_name" class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['empName'].invalid && (empForm.controls['empName'].dirty || empForm.controls['empName'].touched)" class="alert">
+                                                        <div *ngIf="empForm.controls['empName'].errors.required">
+                                                            <p class="error-msg">
+                                                                Name is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputJobTitle" class="float-left">Job Title</label>
+                                                    <input type="text" formControlName="jobTitle" id="inputJobTitle" name="job_title" class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['jobTitle'].invalid && (empForm.controls['jobTitle'].dirty || empForm.controls['jobTitle'].touched)" class="alert">
+                                                        <div *ngIf="empForm.controls['jobTitle'].errors.required">
+                                                            <p class="error-msg">
+                                                                Job Title is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputSalary" class="float-left">Salary</label>
+                                                    <input type="text" formControlName="salary" id="inputSalary" name="salary" class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['salary'].invalid && (empForm.controls['salary'].dirty || empForm.controls['salary'].touched)" class="alert">
+                                                        <div *ngIf="empForm.controls['salary'].errors.required">
+                                                            <p class="error-msg">
+                                                                Salary is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-3 my-2">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputEmployeeName" class="float-left">Employee ID</label>
+                                                    <input type="text" formControlName="empId" id="inputEmployeeName" name="employee_name" class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['empId'].invalid && (empForm.controls['empId'].dirty || empForm.controls['empId'].touched)" class="alert">
+                                                        <div *ngIf="empForm.controls['empId'].errors.required">
+                                                            <p class="error-msg">
+                                                                Employee ID is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputJobTitle" class="float-left">Employee Grade</label>
+                                                    <input type="text" formControlName="empGrade" id="inputJobTitle" name="job_title" class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['empGrade'].invalid && (empForm.controls['empGrade'].dirty || empForm.controls['empGrade'].touched)" class="alert">
+                                                        <div *ngIf="empForm.controls['empGrade'].errors.required">
+                                                            <p class="error-msg">
+                                                                Employee Grade is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputSalary" class="float-left">Leave Balance</label>
+                                                    <input type="text" formControlName="leaveBalance" id="inputSalary" name="salary" class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['leaveBalance'].invalid && (empForm.controls['leaveBalance'].dirty || empForm.controls['leaveBalance'].touched)" class="alert">
+                                                        <div *ngIf="empForm.controls['leaveBalance'].errors.required">
+                                                            <p class="error-msg">
+                                                                Leave Balance is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-3 my-2">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputEmployeeName" class="float-left">Job Description</label>
+                                                    <input type="text" formControlName="jobDescription" id="inputEmployeeName" name="employee_name" class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['jobDescription'].invalid && (empForm.controls['jobDescription'].dirty || empForm.controls['jobDescription'].touched)" class="alert">
+                                                        <div *ngIf="empForm.controls['jobDescription'].errors.required">
+                                                            <p class="error-msg">
+                                                                Job Description is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputJobTitle" class="float-left">Personal Information</label>
+                                                    <input type="text" id="inputJobTitle" formControlName="personalInfo" name="job_title" class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['personalInfo'].invalid && (empForm.controls['personalInfo'].dirty || empForm.controls['personalInfo'].touched)" class="alert">
+                                                        <div *ngIf="empForm.controls['personalInfo'].errors.required">
+                                                            <p class="error-msg">
+                                                                Personal Information is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputSalary" class="float-left">End of Service</label>
+                                                    <input type="text" id="inputSalary" formControlName="endService" name="salary" class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['endService'].invalid && (empForm.controls['endService'].dirty || empForm.controls['endService'].touched)" class="alert">
+                                                        <div *ngIf="empForm.controls['endService'].errors.required">
+                                                            <p class="error-msg">
+                                                                End Service is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col btn-section">
+                                            <div class="btn-area float-right">
+                                                <button id="submit" class="btn btn-sm btn-secondary"
+                                                 [disabled]="empForm.invalid" [style.background-color]="empForm.invalid ? 'gray' : 'green'"
+                                                >Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider-container grey">
+                    <hr class="divider-line">
+                </div>
+                <div>
+                    <div class="mytexttitle">
+                        <select class="form-select current-status-dropdown" aria-label="Default select example" style="float: left;" placeholder="Sort By" (change)="sort($event.target.value)">
+                            <option value="" selected disabled hidden>Sort By</option>
+                            <option value="A to Z">A to Z</option>
+                            <option value="Z to A">Z to A</option>
+                            <option value="salary_low">Salary: Low to High</option>
+                            <option value="salary_high">Salary: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="searchtext">
+                    <input class="form-control search-hero" type="text" name="search"
+                        [(ngModel)]="searchText" autocomplete="off" placeholder="Search...">
+                </div>
+                
+                <div class="card" *ngFor="let emp of employeeDetails | filter:searchText">
+
+                    <div class="accordion-header">
+                        <h4 class="card-title w-100">
+                            <a class="d-block w-100 top-section collapsed" data-toggle="collapse" href="#{{emp.empName}}">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <div class="avatar-container">
+                                            <div>
+                                                <img src="{{emp.avatar}}">
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-1">
+
+                                    </div> -->
+                                    <div class="col-3">
+                                        <div class="content" style="margin-left: 4px;">
+                                            <span class="title">Employee Name:</span>
+                                            <span class="value">{{emp.empName}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="content" style="margin-left: -1px;">
+                                            <span class="title">Employee ID:</span>
+                                            <span class="value">{{emp.empId}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="content" style="margin-left:-7px">
+                                            <span class="title">Job Description:</span>
+                                            <span class="value">{{emp.jobDescription}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div [attr.id]=emp.empName class="collapse" data-parent="#accordion">
+                        <div class="accordion-body">
+                            <div class="row" style="margin-top: -28px;">
+                                <div class="col-2">
+
+                                </div>
+                                <!-- <div class="col-1">
+                                        
+                                </div> -->
+                                <div class="col-3">
+                                    <div class="content">
+                                        <span class="title">Job Title:</span>
+                                        <span class="value">{{emp.jobTitle}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="content">
+                                        <span class="title">Employee Grad:</span>
+                                        <span class="value">{{emp.empGrade}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="content">
+                                        <span class="title">Personal Information:</span>
+                                        <span class="value">{{emp.personalInfo}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2">
+
+                                </div>
+                                <!-- <div class="col-1">
+
+                                </div> -->
+                                <div class="col-3">
+                                    <div class="content">
+                                        <span class="title">Salary:</span>
+                                        <span class="value">{{emp.salary}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="content">
+                                        <span class="title">Leave Balance:</span>
+                                        <span class="value">{{emp.leaveBalance}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="content">
+                                        <span class="title">End of Service:</span>
+                                        <span class="value">{{emp.endService}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2">
+
+                                </div>
+                                <!-- <div class="col-1">
+
+                                </div> -->
+                                <div class="col-3">
+                                    <div>
+                                        <button type="button" st class="btn btn-sm btn-success" data-toggle="modal" data-target=".bd-salryDetails-modal-lg">WPS</button>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="btn-area">
+                                        <button type="button" st class="btn btn-sm btn-success" data-toggle="modal" data-target=".bd-applyleave-modal-lg">Apply Leave</button>
+                                    </div>
+                                </div>
+                                <div class="col-3 float-right">
+                                    <div>
+                                        <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target=".bd-example-modal-lg">Edit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content employee-edit-form-modal">
+
+                <div class="container">
+
+                    <form id="edit_employee_form">
+
+                        <div class="row">
+
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <div class="picture-container">
+                                        <div class="picture">
+                                            <div class="picture2">
+                                                <img src="assets/images/avatar.png" class="picture-src" id="editPicturePreview" title="">
+                                                <input type="file" id="edit-profile-picture" class="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="picture-label text-center">
+                                        <label for="edit-profile-picture">Upload Profile Picture</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-3 my-2">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="inputEmployeeName">Employee Name</label>
+                                        <input type="text" id="inputEmployeeName" name="employee_name" class="form-control" autocomplete="off" value="Ahmed">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="inputJobTitle">Job Title</label>
+                                        <input type="text" id="inputJobTitle" name="job_title" class="form-control" autocomplete="off" value="Sales Associate">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="inputSalary">Salary</label>
+                                        <input type="text" id="inputSalary" name="salary" class="form-control" autocomplete="off" value="2,500">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-3 my-2">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="inputEmployeeName">Employee ID</label>
+                                        <input type="text" id="inputEmployeeName" name="employee_name" class="form-control" autocomplete="off" value="3456">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="inputJobTitle">Employee Grad</label>
+                                        <input type="text" id="inputJobTitle" name="job_title" class="form-control" autocomplete="off" value="25123">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="inputSalary">Leave Balance</label>
+                                        <input type="text" id="inputSalary" name="salary" class="form-control" autocomplete="off" value="30 days">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-3 my-2">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="inputEmployeeName">Job Description</label>
+                                        <input type="text" id="inputEmployeeName" name="employee_name" class="form-control" autocomplete="off" value="Sales Assiciate">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="inputJobTitle">Personal Information</label>
+                                        <input type="text" id="inputJobTitle" name="job_title" class="form-control" autocomplete="off" value="Lorem Ipsu">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="inputSalary">End of Service</label>
+                                        <input type="text" id="inputSalary" name="salary" class="form-control" autocomplete="off" value="03 / 24 / 2024">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <button type="button" class="btn btn-submit" id="btn_submit">Update</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Apply Leave -->
+    <div class="modal fade bd-applyleave-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content employee-edit-form-modal">
+
+                <div class="container">
+
+                    <form id="edit_employee_form">
+
+                        <div class="row">
+
+                            <div class="col-12">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="from_date">From Date</label>
+                                        <div class="input-group date" id="from_date" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#from_date" placeholder="From Date" name="from_date">
+                                            <div class="input-group-append date-picker-svg" data-target="#from_date" data-toggle="datetimepicker">
+                                                <div class="input-group-text">
+                                                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" width="18">
+                                                        <path class="cls-1" fill="#5B5A5A" d="M98.52,63.35h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,107.52,47h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,98.52,63.35Zm.09-12.59h8.82v8.82H98.61Zm-.09,36.53h9a3.69,3.69,0,0,0,3.69-3.69v-9a3.7,3.7,0,0,0-3.69-3.69h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,98.52,87.29Zm.09-12.6h8.82v8.82H98.61ZM72.84,63.35h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,81.84,47h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,72.84,63.35Zm.09-12.59h8.82v8.82H72.93Zm-42.45,43h-9a3.69,3.69,0,0,0-3.69,3.69v9a3.69,3.69,0,0,0,3.69,3.69h9a3.69,3.69,0,0,0,3.69-3.69v-9A3.69,3.69,0,0,0,30.48,93.73Zm-.09,12.59H21.57V97.51h8.82ZM30.48,47h-9a3.69,3.69,0,0,0-3.69,3.69v9a3.69,3.69,0,0,0,3.69,3.68h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,30.48,47Zm-.09,12.6H21.57V50.76h8.82ZM72.84,86.73h9A3.7,3.7,0,0,0,85.53,83V74a3.7,3.7,0,0,0-3.69-3.69h-9A3.7,3.7,0,0,0,69.15,74v9A3.7,3.7,0,0,0,72.84,86.73Zm.09-12.6h8.82V83H72.93ZM113.08,8.64H105V5.75A5.75,5.75,0,0,0,99.26,0h-.87a5.76,5.76,0,0,0-5.75,5.75V8.64H36.36V5.75A5.76,5.76,0,0,0,30.61,0h-.87A5.75,5.75,0,0,0,24,5.75V8.64H15.92A9.47,9.47,0,0,0,6.46,18.1V119.55A9.45,9.45,0,0,0,15.9,129h97.2a9.45,9.45,0,0,0,9.44-9.45V18.1a9.47,9.47,0,0,0-9.46-9.46ZM96.42,5.75a2,2,0,0,1,2-2h.87a2,2,0,0,1,2,2V8.64h-4.8Zm-68.64,0a2,2,0,0,1,2-2h.87a2,2,0,0,1,2,2V8.64h-4.8V5.75Zm91,113.8a5.67,5.67,0,0,1-5.67,5.67H15.9a5.67,5.67,0,0,1-5.66-5.67h0a9.42,9.42,0,0,0,5.68,1.9H92.53a9.37,9.37,0,0,0,6.69-2.77l19.54-19.54Zm-21.47-4.3a8,8,0,0,0,.23-1.9V100.73a4.33,4.33,0,0,1,4.32-4.31h12.61a8.05,8.05,0,0,0,1.91-.23Zm21.47-79.61H38.25a1.89,1.89,0,0,0,0,3.78h80.51V88.33a4.31,4.31,0,0,1-4.31,4.31H101.84a8.1,8.1,0,0,0-8.1,8.09v12.62a4.31,4.31,0,0,1-4.31,4.31H15.92A5.68,5.68,0,0,1,10.24,112V39.42H30.69a1.89,1.89,0,0,0,0-3.78H10.24V18.1a5.68,5.68,0,0,1,5.68-5.69H24V18a5.75,5.75,0,0,0,5.74,5.75,1.89,1.89,0,1,0,0-3.78,2,2,0,0,1-2-2V12.41H92.64V18a5.76,5.76,0,0,0,5.75,5.75,1.89,1.89,0,1,0,0-3.78,2,2,0,0,1-2-2V12.41h16.66a5.68,5.68,0,0,1,5.68,5.69ZM30.48,70.35h-9A3.7,3.7,0,0,0,17.79,74v9a3.7,3.7,0,0,0,3.69,3.69h9A3.69,3.69,0,0,0,34.17,83V74A3.69,3.69,0,0,0,30.48,70.35ZM30.39,83H21.57V74.13h8.82Zm16.77-19.6h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,56.16,47h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,47.16,63.35Zm.09-12.59h8.82v8.82H47.25Zm25.68,55.56a1.89,1.89,0,0,0-3.78.09,3.69,3.69,0,0,0,3.69,3.69h9a3.69,3.69,0,0,0,3.69-3.69v-9a3.69,3.69,0,0,0-3.69-3.69h-9a3.69,3.69,0,0,0-3.69,3.69V100a1.89,1.89,0,0,0,3.78,0v-2.5h8.82v8.81ZM47.16,86.73h9A3.7,3.7,0,0,0,59.85,83V74a3.7,3.7,0,0,0-3.69-3.69h-9A3.7,3.7,0,0,0,43.47,74v9A3.7,3.7,0,0,0,47.16,86.73Zm.09-12.6h8.82V83H47.25Zm-.09,36h9a3.69,3.69,0,0,0,3.69-3.69v-9a3.69,3.69,0,0,0-3.69-3.69h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,47.16,110.1Zm.09-12.59h8.82v8.81H47.25Z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="to_date">To Date</label>
+                                        <div class="input-group date" id="to_date" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#to_date" placeholder="To Date" name="to_date">
+                                            <div class="input-group-append date-picker-svg" data-target="#to_date" data-toggle="datetimepicker">
+                                                <div class="input-group-text">
+                                                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" width="18">
+                                                        <path class="cls-1" fill="#5B5A5A" d="M98.52,63.35h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,107.52,47h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,98.52,63.35Zm.09-12.59h8.82v8.82H98.61Zm-.09,36.53h9a3.69,3.69,0,0,0,3.69-3.69v-9a3.7,3.7,0,0,0-3.69-3.69h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,98.52,87.29Zm.09-12.6h8.82v8.82H98.61ZM72.84,63.35h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,81.84,47h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,72.84,63.35Zm.09-12.59h8.82v8.82H72.93Zm-42.45,43h-9a3.69,3.69,0,0,0-3.69,3.69v9a3.69,3.69,0,0,0,3.69,3.69h9a3.69,3.69,0,0,0,3.69-3.69v-9A3.69,3.69,0,0,0,30.48,93.73Zm-.09,12.59H21.57V97.51h8.82ZM30.48,47h-9a3.69,3.69,0,0,0-3.69,3.69v9a3.69,3.69,0,0,0,3.69,3.68h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,30.48,47Zm-.09,12.6H21.57V50.76h8.82ZM72.84,86.73h9A3.7,3.7,0,0,0,85.53,83V74a3.7,3.7,0,0,0-3.69-3.69h-9A3.7,3.7,0,0,0,69.15,74v9A3.7,3.7,0,0,0,72.84,86.73Zm.09-12.6h8.82V83H72.93ZM113.08,8.64H105V5.75A5.75,5.75,0,0,0,99.26,0h-.87a5.76,5.76,0,0,0-5.75,5.75V8.64H36.36V5.75A5.76,5.76,0,0,0,30.61,0h-.87A5.75,5.75,0,0,0,24,5.75V8.64H15.92A9.47,9.47,0,0,0,6.46,18.1V119.55A9.45,9.45,0,0,0,15.9,129h97.2a9.45,9.45,0,0,0,9.44-9.45V18.1a9.47,9.47,0,0,0-9.46-9.46ZM96.42,5.75a2,2,0,0,1,2-2h.87a2,2,0,0,1,2,2V8.64h-4.8Zm-68.64,0a2,2,0,0,1,2-2h.87a2,2,0,0,1,2,2V8.64h-4.8V5.75Zm91,113.8a5.67,5.67,0,0,1-5.67,5.67H15.9a5.67,5.67,0,0,1-5.66-5.67h0a9.42,9.42,0,0,0,5.68,1.9H92.53a9.37,9.37,0,0,0,6.69-2.77l19.54-19.54Zm-21.47-4.3a8,8,0,0,0,.23-1.9V100.73a4.33,4.33,0,0,1,4.32-4.31h12.61a8.05,8.05,0,0,0,1.91-.23Zm21.47-79.61H38.25a1.89,1.89,0,0,0,0,3.78h80.51V88.33a4.31,4.31,0,0,1-4.31,4.31H101.84a8.1,8.1,0,0,0-8.1,8.09v12.62a4.31,4.31,0,0,1-4.31,4.31H15.92A5.68,5.68,0,0,1,10.24,112V39.42H30.69a1.89,1.89,0,0,0,0-3.78H10.24V18.1a5.68,5.68,0,0,1,5.68-5.69H24V18a5.75,5.75,0,0,0,5.74,5.75,1.89,1.89,0,1,0,0-3.78,2,2,0,0,1-2-2V12.41H92.64V18a5.76,5.76,0,0,0,5.75,5.75,1.89,1.89,0,1,0,0-3.78,2,2,0,0,1-2-2V12.41h16.66a5.68,5.68,0,0,1,5.68,5.69ZM30.48,70.35h-9A3.7,3.7,0,0,0,17.79,74v9a3.7,3.7,0,0,0,3.69,3.69h9A3.69,3.69,0,0,0,34.17,83V74A3.69,3.69,0,0,0,30.48,70.35ZM30.39,83H21.57V74.13h8.82Zm16.77-19.6h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,56.16,47h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,47.16,63.35Zm.09-12.59h8.82v8.82H47.25Zm25.68,55.56a1.89,1.89,0,0,0-3.78.09,3.69,3.69,0,0,0,3.69,3.69h9a3.69,3.69,0,0,0,3.69-3.69v-9a3.69,3.69,0,0,0-3.69-3.69h-9a3.69,3.69,0,0,0-3.69,3.69V100a1.89,1.89,0,0,0,3.78,0v-2.5h8.82v8.81ZM47.16,86.73h9A3.7,3.7,0,0,0,59.85,83V74a3.7,3.7,0,0,0-3.69-3.69h-9A3.7,3.7,0,0,0,43.47,74v9A3.7,3.7,0,0,0,47.16,86.73Zm.09-12.6h8.82V83H47.25Zm-.09,36h9a3.69,3.69,0,0,0,3.69-3.69v-9a3.69,3.69,0,0,0-3.69-3.69h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,47.16,110.1Zm.09-12.59h8.82v8.81H47.25Z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">     
+                                    <div class="form-group">
+                                        <label for="type_leave">Type Of Leave</label>
+                                        <select id="type_leave" name="leave" class="form-control">
+                                            <option value="">Select Leave</option>
+                                            <option value="Dubai">Casual Leave</option>
+                                            <option value="Abu Dhabi">Emergency Leave</option>
+                                            <option value="Abu Dhabi">Sick Leave</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="remark">Remarks</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col text-center">
+                                    <button type="button" class="btn btn-submit" id="btn_submit">Submit Leave</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- salry Details -->
+    <div class="modal fade bd-salryDetails-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content employee-edit-form-modal">
+
+                <div class="container">
+
+                    <form id="edit_employee_form">
+
+                        <div class="row">
+                            <!-- WPS : User ID, User name, basic salary, house allowance, transport, joining date, 
+                            account number, month - drop down, action - radio button. -->
+                            <div class="col-12">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="basic_salary">Basic Salary</label>
+                                        <input type="text" class="form-control" id="basic_salary" placeholder="Basic Salary">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="house_allownce">House Allowance</label>
+                                        <input type="text" class="form-control" id="house_allownce" placeholder="House Allowance">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="transport">Transport</label>
+                                        <input type="text" class="form-control" id="transport" placeholder="Transport">
+                                    </div>
+                                
+                                
+                                    <div class="form-group">
+                                        <label for="from_date">Joining Date</label>
+                                        <div class="input-group date" id="joining_date" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#joining_date" placeholder="Joining Date" name="joining_date">
+                                            <div class="input-group-append date-picker-svg" data-target="#from_date" data-toggle="datetimepicker">
+                                                <div class="input-group-text">
+                                                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" width="18">
+                                                        <path class="cls-1" fill="#5B5A5A" d="M98.52,63.35h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,107.52,47h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,98.52,63.35Zm.09-12.59h8.82v8.82H98.61Zm-.09,36.53h9a3.69,3.69,0,0,0,3.69-3.69v-9a3.7,3.7,0,0,0-3.69-3.69h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,98.52,87.29Zm.09-12.6h8.82v8.82H98.61ZM72.84,63.35h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,81.84,47h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,72.84,63.35Zm.09-12.59h8.82v8.82H72.93Zm-42.45,43h-9a3.69,3.69,0,0,0-3.69,3.69v9a3.69,3.69,0,0,0,3.69,3.69h9a3.69,3.69,0,0,0,3.69-3.69v-9A3.69,3.69,0,0,0,30.48,93.73Zm-.09,12.59H21.57V97.51h8.82ZM30.48,47h-9a3.69,3.69,0,0,0-3.69,3.69v9a3.69,3.69,0,0,0,3.69,3.68h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,30.48,47Zm-.09,12.6H21.57V50.76h8.82ZM72.84,86.73h9A3.7,3.7,0,0,0,85.53,83V74a3.7,3.7,0,0,0-3.69-3.69h-9A3.7,3.7,0,0,0,69.15,74v9A3.7,3.7,0,0,0,72.84,86.73Zm.09-12.6h8.82V83H72.93ZM113.08,8.64H105V5.75A5.75,5.75,0,0,0,99.26,0h-.87a5.76,5.76,0,0,0-5.75,5.75V8.64H36.36V5.75A5.76,5.76,0,0,0,30.61,0h-.87A5.75,5.75,0,0,0,24,5.75V8.64H15.92A9.47,9.47,0,0,0,6.46,18.1V119.55A9.45,9.45,0,0,0,15.9,129h97.2a9.45,9.45,0,0,0,9.44-9.45V18.1a9.47,9.47,0,0,0-9.46-9.46ZM96.42,5.75a2,2,0,0,1,2-2h.87a2,2,0,0,1,2,2V8.64h-4.8Zm-68.64,0a2,2,0,0,1,2-2h.87a2,2,0,0,1,2,2V8.64h-4.8V5.75Zm91,113.8a5.67,5.67,0,0,1-5.67,5.67H15.9a5.67,5.67,0,0,1-5.66-5.67h0a9.42,9.42,0,0,0,5.68,1.9H92.53a9.37,9.37,0,0,0,6.69-2.77l19.54-19.54Zm-21.47-4.3a8,8,0,0,0,.23-1.9V100.73a4.33,4.33,0,0,1,4.32-4.31h12.61a8.05,8.05,0,0,0,1.91-.23Zm21.47-79.61H38.25a1.89,1.89,0,0,0,0,3.78h80.51V88.33a4.31,4.31,0,0,1-4.31,4.31H101.84a8.1,8.1,0,0,0-8.1,8.09v12.62a4.31,4.31,0,0,1-4.31,4.31H15.92A5.68,5.68,0,0,1,10.24,112V39.42H30.69a1.89,1.89,0,0,0,0-3.78H10.24V18.1a5.68,5.68,0,0,1,5.68-5.69H24V18a5.75,5.75,0,0,0,5.74,5.75,1.89,1.89,0,1,0,0-3.78,2,2,0,0,1-2-2V12.41H92.64V18a5.76,5.76,0,0,0,5.75,5.75,1.89,1.89,0,1,0,0-3.78,2,2,0,0,1-2-2V12.41h16.66a5.68,5.68,0,0,1,5.68,5.69ZM30.48,70.35h-9A3.7,3.7,0,0,0,17.79,74v9a3.7,3.7,0,0,0,3.69,3.69h9A3.69,3.69,0,0,0,34.17,83V74A3.69,3.69,0,0,0,30.48,70.35ZM30.39,83H21.57V74.13h8.82Zm16.77-19.6h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,56.16,47h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,47.16,63.35Zm.09-12.59h8.82v8.82H47.25Zm25.68,55.56a1.89,1.89,0,0,0-3.78.09,3.69,3.69,0,0,0,3.69,3.69h9a3.69,3.69,0,0,0,3.69-3.69v-9a3.69,3.69,0,0,0-3.69-3.69h-9a3.69,3.69,0,0,0-3.69,3.69V100a1.89,1.89,0,0,0,3.78,0v-2.5h8.82v8.81ZM47.16,86.73h9A3.7,3.7,0,0,0,59.85,83V74a3.7,3.7,0,0,0-3.69-3.69h-9A3.7,3.7,0,0,0,43.47,74v9A3.7,3.7,0,0,0,47.16,86.73Zm.09-12.6h8.82V83H47.25Zm-.09,36h9a3.69,3.69,0,0,0,3.69-3.69v-9a3.69,3.69,0,0,0-3.69-3.69h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,47.16,110.1Zm.09-12.59h8.82v8.81H47.25Z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bonus">Bonus</label>
+                                        <input type="text" class="form-control" id="bonus" placeholder="Bonus">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ac_no">Account Number</label>
+                                        <input type="text" class="form-control" id="ac_no" placeholder="Account Number">
+                                    </div>
+                                </div>
+                                <!-- <div class="col">     
+                                    <div class="form-group">
+                                        <label for="month">Month</label>
+                                        <select id="month" name="month" class="form-control">
+                                            <option value="">Select Month</option>
+                                            <option value="Jan">January</option>
+                                            <option value="Feb">February</option>
+                                            <option value="March">March</option>
+                                            <option value="Apr">Aprial</option>
+                                            <option value="May">May</option>
+                                            <option value="Jun">June</option>
+                                            <option value="Jul">July</option>
+                                            <option value="Aug">August</option>
+                                            <option value="Sept">September</option>
+                                            <option value="Oct">October</option>
+                                            <option value="Nov">November</option>
+                                            <option value="Dec">December</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="remark">Remarks</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+                                </div> -->
+                                <div class="col text-center">
+                                    <button type="button" class="btn btn-submit" id="btn_submit">Submit</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

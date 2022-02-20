@@ -1,0 +1,298 @@
+<div class="content-wrapper main-section-container">
+
+    <app-vat-menus></app-vat-menus>
+
+    <!-- Complaints contents -->
+
+    <section class="content mt-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pl-0 pr-0">
+                    <div class="table-container">
+
+                        <div class="table-header">
+
+                            <div>
+                                <div style="display: flex;justify-content: space-between" *ngIf="!isShow">
+                                    <button class="btn btn-sm addItem" (click)="addItem()">ADD AUDITOR</button>
+                                    <input *ngIf="!isShow" class="form-control search-hero" type="text" name="search"
+                                        [(ngModel)]="searchText" autocomplete="off" placeholder="Search...">
+                                </div>
+                                <button class="btn btn-sm addItem" (click)="addItem()" *ngIf="isShow">SAVE</button>
+
+                                <div *ngIf="isShow" class="container">
+
+                                    <form [formGroup]="empForm" id="msform" (ngSubmit)="submit()">
+
+                                        <div class="row">
+                                            <!-- <div class="col-md-3 my-2"> -->
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputEmployeeName" class="float-left">Auditor
+                                                        Name</label>
+                                                    <input type="text" formControlName="empName"
+                                                        (keyup)="getVal1($event.target.value)" id=" inputEmployeeName"
+                                                        name="employee_name" class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['empName'].invalid && (empForm.controls['empName'].dirty || empForm.controls['empName'].touched)"
+                                                        class="alert">
+                                                        <div *ngIf="empForm.controls['empName'].errors.required">
+                                                            <p class="error-msg">
+                                                                Name is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputJobTitle" class="float-left">Contact</label>
+                                                    <input type="text" formControlName="jobTitle"
+                                                        (keyup)="getVal2($event.target.value)" id="inputJobTitle"
+                                                        name="job_title" class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['jobTitle'].invalid && (empForm.controls['jobTitle'].dirty || empForm.controls['jobTitle'].touched)"
+                                                        class="alert">
+                                                        <div *ngIf="empForm.controls['jobTitle'].errors.required">
+                                                            <p class="error-msg">
+                                                                Job Title is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputSalary" class="float-left">Email</label>
+                                                    <input type="text" formControlName="salary" id="inputSalary"
+                                                        (keyup)="getVal3($event.target.value)" name="salary"
+                                                        class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['salary'].invalid && (empForm.controls['salary'].dirty || empForm.controls['salary'].touched)"
+                                                        class="alert">
+                                                        <div *ngIf="empForm.controls['salary'].errors.required">
+                                                            <p class="error-msg">
+                                                                Salary is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputEmployeeName" class="float-left">Remarks</label>
+                                                    <input type="text" formControlName="empId"
+                                                        (keyup)="getVal4($event.target.value)" id="inputEmployeeName"
+                                                        name="employee_name" class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['empId'].invalid && (empForm.controls['empId'].dirty || empForm.controls['empId'].touched)"
+                                                        class="alert">
+                                                        <div *ngIf="empForm.controls['empId'].errors.required">
+                                                            <p class="error-msg">
+                                                                Employee ID is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputJobTitle" class="float-left">Joining
+                                                        Date</label>
+                                                    <input type="text" formControlName="empGrade" type="date"
+                                                        [(ngModel)]="value5" id="inputJobTitle" name="job_title"
+                                                        class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['empGrade'].invalid && (empForm.controls['empGrade'].dirty || empForm.controls['empGrade'].touched)"
+                                                        class="alert">
+                                                        <div *ngIf="empForm.controls['empGrade'].errors.required">
+                                                            <p class="error-msg">
+                                                                Employee Grade is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputSalary" class="float-left">Agreement</label>
+                                                    <input type="file" formControlName="leaveBalance"
+                                                        (keyup)="getVal6($event.target.value)" id="inputSalary"
+                                                        name="salary" class="form-control" autocomplete="off">
+                                                    <div *ngIf="empForm.controls['leaveBalance'].invalid && (empForm.controls['leaveBalance'].dirty || empForm.controls['leaveBalance'].touched)"
+                                                        class="alert">
+                                                        <div *ngIf="empForm.controls['leaveBalance'].errors.required">
+                                                            <p class="error-msg">
+                                                                Leave Balance is required
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputEmployeeName" class="float-left">Status</label>
+                                                    <select [(ngModel)]="value7" rows="1" value="{{value7}}"
+                                                        class="form-control addValue" placeholder="">
+                                                        <option value="active">Active</option>
+                                                        <option value="deactive">Deactive</option>
+
+                                                    </select>
+
+                                                </div>
+                                            </div> -->
+                                            <!-- </div> -->
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+
+                                <!-- </div> -->
+
+                            </div>
+                            <!-- <input *ngIf="!isShow" class="form-control search-hero" type="text" name="search"
+                                [(ngModel)]="searchText" autocomplete="off" placeholder="Search..."> -->
+
+                        </div>
+                        <div class="table_data">
+                            <div class="hr-tag">
+                                <hr />
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th class="cur_Header">
+                                                <a [href]="" (click)="sortOrders('userId')">
+                                                    ID
+                                                    <span *ngIf="sortType == 'userId' && !sortReverse"
+                                                        class="fa fa-caret-down"></span>
+                                                    <span *ngIf="sortType == 'userId' && sortReverse"
+                                                        class="fa fa-caret-up"></span>
+                                                </a>
+                                            </th>
+                                            <th class="cur_Header">
+                                                <a [href]="" (click)="sortOrders('cust_name')">
+                                                    AUDITOR NAME
+                                                    <span *ngIf="sortType == 'cust_name' && !sortReverse"
+                                                        class="fa fa-caret-down"></span>
+                                                    <span *ngIf="sortType == 'cust_name' && sortReverse"
+                                                        class="fa fa-caret-up"></span>
+                                                </a>
+                                            </th>
+                                            <th>CONTACT</th>
+                                            <th>EMAIL</th>
+                                            <th>REMARKS</th>
+                                            <th class="cur_Header">
+                                                <a [href]="" (click)="sortOrders('date')">
+                                                    JOINING DATE
+                                                    <span *ngIf="sortType == 'date' && !sortReverse"
+                                                        class="fa fa-caret-down"></span>
+                                                    <span *ngIf="sortType == 'date' && sortReverse"
+                                                        class="fa fa-caret-up"></span>
+                                                </a>
+                                            </th>
+                                            <!-- <th>COMPLINE NUMBER</th> -->
+                                            <th>AGGREEMENT</th>
+                                            <th class="cur_Header">
+                                                <a [href]="" (click)="sortOrders('status')">
+                                                    STATUS
+                                                    <span *ngIf="sortType == 'status' && !sortReverse"
+                                                        class="fa fa-caret-down"></span>
+                                                    <span *ngIf="sortType == 'status' && sortReverse"
+                                                        class="fa fa-caret-up"></span>
+                                                </a>
+                                            </th>
+                                            <!-- <th>ACTION</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody class="align-baseline">
+                                        <tr *ngFor="let complaint of items | filter:searchText">
+                                            <td>{{complaint.userId}}</td>
+                                            <td>{{complaint.cust_name}}</td>
+                                            <td>{{complaint.contact}}</td>
+                                            <td data-tooltip="top" role="tooltip" attr.aria-label="{{complaint.email}}">
+                                                <i class="bi-envelope-open"></i>
+                                            </td>
+                                            <td class="remarks_one" data-tooltip="top" role="tooltip"
+                                                attr.aria-label="{{complaint.remarks}}"><i class="bi-card-list"
+                                                    data-toggle="modal" data-target="#myModal"
+                                                    (click)="edit(complaint)"></i></td>
+                                            <td>{{complaint.date | date: 'dd/MM/yyyy'}}</td>
+                                            <!-- <td>{{complaint.complaint_Num}}</td> -->
+                                            <td><i class='bi bi-paperclip' style='font-size: 1rem;'></i> </td>
+                                            <td class="status status-green">
+                                                <span [ngStyle]="{'color':complaint.color}"><i
+                                                        class="fas fa-bars icon-select"></i>
+                                                </span>
+                                                <select class="status-option status_complaint"
+                                                    (change)="changeStatus($event.target.value,complaint.userId)">
+                                                    <!-- <option selected>{{complaint.status}}</option> -->
+                                                    <option *ngFor="let i of status" [value]="complaint.status">
+                                                        {{i.key}}
+                                                    </option>
+                                                </select>
+                                                <!-- {{complaint.status}} -->
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Remarks Model -->
+
+                        <div id="myModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content" style="width: 130%;">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <p class="small text-center" *ngFor="let remarks of remarksData">{{remarks.date}}
+                                    </p>
+                                    <div class="modal-body" style="margin-top: -34px;">
+                                        <!-- Mobile remarks -->
+                                        <div class="row mobileRemark" *ngFor="let remarks of remarksData">
+                                            <div class="col-1"><i class='fas fa-user-alt bg-light remarkPerson'></i>
+                                            </div>
+
+                                            <div class=" col-11 bg-light rounded">
+                                                <p>{{remarks.name}}</p>
+                                                <p class="text-small text-muted">{{remarks.data}}</p>
+                                            </div>
+                                        </div>
+                                        <!-- Web Remarks -->
+                                        <div *ngFor="let remarks of remarksoutData">
+                                            <p class="small text-center">{{remarks.date}}</p>
+                                            <div class="row webRemark">
+                                                <!-- <div class="col-2"></div> -->
+                                                <div class=" col-11 bg-light rounded1">
+                                                    <p class="webRemark">{{remarks.name}}</p>
+                                                    <p class="text-small text-muted webRemark">{{remarks.data}}</p>
+
+                                                </div>
+                                                <div class="col-1"><i class='fas fa-user-alt bg-light remarkPerson'></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer footer">
+                                        <div class="col-md-12 remarkBox">
+                                            <textarea id="remarks" placeholder="Enter Remarks here.."
+                                                [(ngModel)]="remarksMsg"></textarea>
+                                        </div>
+                                        <button class="update" (click)="updateRemarks(remarksMsg)">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
